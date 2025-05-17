@@ -1,0 +1,85 @@
+
+
+Krishnendu Saji 
+Date of birth: 17/10/1996 Nationality: Indian Phone: (+49) 17632662692 (Mobile)     Email: 
+krishnendusajim@gmail.com     Website: https://www.linkedin.com/in/krishnendusaji/ Website: 
+https://github.com/Kris-and-Code 
+Address: Heideloffplatz 5, Apt. 55, 90478, Nürnberg, Germany (Home)     
+Languages & Frameworks:
+Python TypeScript Reactflow React HTML Tailwind CSS Bootstrap NoSQL JavaScript 
+AI & Data:
+LLM Transformers Pandas NumPy Torch NLP 
+Tools & Platforms:
+Git Firebase Docker REST APIs Kubernetes 
+Soft Skills:
+Adaptability Collaboration Creativity Problem Solving 
+ 
+SHOPIFY DEVELOPER - WERKSTUDENT – 02/2024 – 08/2024 
+• Developed and deployed 5+ Shopify plugins using Liquid and JavaScript, increasing platform functionality and
+boosting user retention by 20%.
+• Customized 10+ responsive e-commerce websites, integrating RESTful APIs and ensuring seamless UX/UI across
+mobile and desktop, improving page load speed by 15%.
+• Optimized and debugged existing codebases, reducing error rates by 25% through regular updates and
+performance enhancements.
+ 
+WEB DEVELOPER FOR MACHINE LEARNING APP – 02/2023 – 07/2023 
+• Built a proof-of-concept for workflow optimization using React, TypeScript, ChakraUI and Python, boosting
+process efficiency by 15% for internal R&D teams.
+• Engineered user-friendly React and TypeScript interfaces incorporating ChakraUI components for a machine
+learning application, boosting user engagement by 40% through enhanced accessibility features and intuitive
+design.
+• Integrated back-end functionalities with RESTful APIs, enabling smooth data flow and reducing latency by 25%.
+ 
+BUSINESS ANALYST – 03/2021 – 10/2021 
+• Led 4 cross-functional projects, implementing process improvements that reduced operational delays by 18%.
+• Analyzed datasets to drive strategic decisions, cutting project costs by 12% through actionable insights.
+ 
+DATA ANALYST – 02/2020 – 10/2021 
+• Streamlined data commissioning/decommissioning workflows, enhancing data integrity and slashing SBC by
+35%.
+• Designed and deployed Power BI and Tableau dashboards, delivering energy usage insights that saved 10%
+operational costs.
+• Built and maintained secure data pipelines using MongoDB and Python, ensuring 100% compliance with
+governance standards.
+SKILLS 
+WORK EXPERIENCE
+ HARMS NUTRICARE GMBH – WIESMOOR, GERMANY
+ SIEMENS AG – MÜNCHEN, GERMANY
+ FRAGOMEN, DEL REY, BERNSEN & LOEWY – KOCHI, INDIA
+ INDUS TOWERS LIMITED – KOCHI, INDIA
+
+ 
+SOFTWARE ENGINEER – 08/2018 – 02/2020 
+• Delivered and rigorously tested 8+ interactive web applications using HTML, JavaScript, CSS, and PHP, resulting
+in a stellar 98% client satisfaction rate across all project deliverables.
+• Implemented scalable code solutions, cutting deployment time by 20% through structured development
+practices.
+• Collaborated with cross-functional teams to align technical deliverables with business objectives, supporting 3
+major product launches.
+01/10/2021 – 03/2025 Hof, Germany 
+MASTER OF ENGINEERING Hochschule Hof 
+• Implemented a cloud-native sentiment and emotion analysis platform to analyze product/service reviews in real
+time( LLM, Python, React, Typescript, Firebase, Pandas, Numpy, Torch, Transformers, beautifulsoup4, NLP,
+Docker)
+Field of study Software Engineering for Industrial Applications    Final grade 1,9 
+Thesis Feedback Pulse - A cloud-native sentiment and emotion detection platform to analyze product reviews in real time 
+07/2014 – 07/2018 Kottayam, India 
+BACHELOR OF TECHNOLOGY MG University 
+• Implemented an Android app to convert scanned images of text or handwritten notes into editable PDF formats.
+Field of study Computer Science and Engineering    Final grade 2,7    Thesis PDF Converter with OCR algorithm 
+Other language(s):
+  
+UNDERSTANDINGSPEAKINGWRITING
+ListeningReadingSpoken production  Spoken interaction
+GERMAN - B1 B1B1B1B1B1
+Levels: A1 and A2: Basic user - B1 and B2: Independent user - C1 and C2: Proficient user 
+Jürgen Heym 
+Fakultät Informatik (INF), Hochschule Hof
+juergen.heym@hof-university.de
+Harald Held 
+Senior Research Scientist, Siemens AG
+harald.held@siemens.com
+ FOURTH AMBIT TECHNOLOGIES PVT LTD – KOCHI, INDIA
+EDUCATION AND TRAINING
+LANGUAGE SKILLS 
+RECOMMENDATIONS 
