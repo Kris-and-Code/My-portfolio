@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardContent } from "../components/ui/card";
-import { Button } from "../components/ui/button";
+import { Card, CardContent } from "./components/ui/card";
+import { Button } from "./components/ui/button";
 import {
-  Mail, Github, Linkedin, Code, Database, Server, Globe, Sun, Moon, GraduationCap, Briefcase, Phone, MapPin, ExternalLink, Download, Star
+  Mail, Github, Linkedin, Code, Database, Server, Globe, Sun, Moon, GraduationCap, Briefcase, Phone, MapPin, ExternalLink, Star
 } from "lucide-react";
 
 const PROFILE_IMG = "/profile.jpg";
