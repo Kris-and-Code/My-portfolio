@@ -8,25 +8,36 @@ import {
 const PROFILE_IMG = "/profile.jpg";
 
 const Portfolio: React.FC = () => {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(() => {
+    // Check if dark mode is enabled in localStorage
+    const savedMode = localStorage.getItem('darkMode');
+    return savedMode === 'true';
+  });
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
+  useEffect(() => {
+    // Update dark mode class on document
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    // Save preference to localStorage
+    localStorage.setItem('darkMode', darkMode.toString());
+  }, [darkMode]);
+
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      darkMode
-        ? 'bg-gradient-to-br from-gray-950 via-slate-900 to-gray-950 text-cyan-100'
-        : 'bg-gradient-to-br from-slate-900 via-gray-900 to-slate-900 text-cyan-100'
-    } font-sans p-4 md:p-10`}>
+    <div className={`min-h-screen transition-colors duration-300 futuristic-gradient font-sans p-4 md:p-10`}>
       {/* Dark Mode Toggle */}
       <button
         onClick={toggleDarkMode}
-        className="fixed top-4 right-4 p-2 rounded-full bg-cyan-900/30 text-cyan-400 hover:bg-cyan-800/50 hover:text-cyan-300 hover:scale-110 transition-all z-50 border border-cyan-500/30"
+        className="fixed top-4 right-4 p-2 rounded-full bg-primary/30 text-primary-foreground hover:bg-primary/50 hover:text-primary-foreground hover:scale-110 transition-all z-50 futuristic-border"
         aria-label="Toggle dark mode"
       >
         {darkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
@@ -35,24 +46,24 @@ const Portfolio: React.FC = () => {
       {/* Profile Section */}
       <header className={`text-center mb-16 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>  
         <div className="flex flex-col items-center justify-center gap-4">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300 text-transparent bg-clip-text drop-shadow-[0_0_8px_rgba(34,211,238,0.3)]">
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-primary to-primary text-transparent bg-clip-text futuristic-glow">
             Krishnendu Saji
           </h1>
-          <p className="text-lg text-cyan-200/80">Software Engineer | AI & Data Enthusiast</p>
+          <p className="text-lg text-foreground/80 futuristic-glow">Software Engineer | AI & Data Enthusiast</p>
           <div className="flex flex-wrap justify-center gap-4 mt-2">
-            <a href="mailto:krishnendusajim@gmail.com" aria-label="Email" className="hover:scale-110 transition-transform"><Mail className="w-6 h-6 text-cyan-400 hover:text-cyan-300" /></a>
-            <a href="https://github.com/Kris-and-Code" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:scale-110 transition-transform"><Github className="w-6 h-6 text-cyan-400 hover:text-cyan-300" /></a>
-            <a href="https://www.linkedin.com/in/krishnendusaji/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:scale-110 transition-transform"><Linkedin className="w-6 h-6 text-cyan-400 hover:text-cyan-300" /></a>
-            <a href="tel:+4917632662692" aria-label="Phone" className="hover:scale-110 transition-transform"><Phone className="w-6 h-6 text-cyan-400 hover:text-cyan-300" /></a>
-            <a href="https://goo.gl/maps/6Qw2Qw2Qw2Qw2Qw2A" target="_blank" rel="noopener noreferrer" aria-label="Location" className="hover:scale-110 transition-transform"><MapPin className="w-6 h-6 text-cyan-400 hover:text-cyan-300" /></a>
+            <a href="mailto:krishnendusajim@gmail.com" aria-label="Email" className="hover:scale-110 transition-transform"><Mail className="w-6 h-6 text-primary hover:text-primary/80 futuristic-glow" /></a>
+            <a href="https://github.com/Kris-and-Code" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:scale-110 transition-transform"><Github className="w-6 h-6 text-primary hover:text-primary/80 futuristic-glow" /></a>
+            <a href="https://www.linkedin.com/in/krishnendusaji/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:scale-110 transition-transform"><Linkedin className="w-6 h-6 text-primary hover:text-primary/80 futuristic-glow" /></a>
+            <a href="tel:+4917632662692" aria-label="Phone" className="hover:scale-110 transition-transform"><Phone className="w-6 h-6 text-primary hover:text-primary/80 futuristic-glow" /></a>
+            <a href="https://goo.gl/maps/6Qw2Qw2Qw2Qw2Qw2A" target="_blank" rel="noopener noreferrer" aria-label="Location" className="hover:scale-110 transition-transform"><MapPin className="w-6 h-6 text-primary hover:text-primary/80 futuristic-glow" /></a>
           </div>
-          <div className="mt-2 text-cyan-300/60 text-sm">Germany</div>
+          <div className="mt-2 text-foreground/60 text-sm futuristic-glow">Germany</div>
         </div>
       </header>
 
       {/* Skills Section */}
       <section className="mb-16 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-semibold mb-6 text-center bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300 text-transparent bg-clip-text drop-shadow-[0_0_8px_rgba(34,211,238,0.3)]">Skills</h2>
+        <h2 className="text-3xl font-semibold mb-6 text-center bg-gradient-to-r from-primary via-primary to-primary text-transparent bg-clip-text futuristic-glow">Skills</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           {[
             { label: 'Python', icon: <Code /> },
@@ -80,10 +91,10 @@ const Portfolio: React.FC = () => {
             { label: 'Creativity', icon: <Star /> },
             { label: 'Problem Solving', icon: <Star /> },
           ].map((skill, i) => (
-            <Card key={i} className={`text-center p-4 flex flex-col items-center gap-2 transform hover:scale-105 transition-all duration-200 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] group bg-slate-800/50 border border-cyan-500/20`}>
+            <Card key={i} className={`text-center p-4 flex flex-col items-center gap-2 transform hover:scale-105 transition-all duration-200 futuristic-card group`}>
               <CardContent className="flex flex-col items-center">
-                {React.cloneElement(skill.icon as React.ReactElement, { className: 'w-7 h-7 text-cyan-400 mb-1 group-hover:text-cyan-300' })}
-                <span className="text-cyan-300 font-medium group-hover:text-cyan-200 transition-colors">{skill.label}</span>
+                {React.cloneElement(skill.icon as React.ReactElement, { className: 'w-7 h-7 text-primary mb-1 group-hover:text-primary/80 futuristic-glow' })}
+                <span className="text-foreground font-medium group-hover:text-foreground/80 transition-colors futuristic-glow">{skill.label}</span>
               </CardContent>
             </Card>
           ))}
@@ -92,83 +103,83 @@ const Portfolio: React.FC = () => {
 
       {/* Experience Section */}
       <section className="mb-16 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-semibold mb-6 text-center bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300 text-transparent bg-clip-text drop-shadow-[0_0_8px_rgba(34,211,238,0.3)]">Experience</h2>
+        <h2 className="text-3xl font-semibold mb-6 text-center bg-gradient-to-r from-primary via-primary to-primary text-transparent bg-clip-text futuristic-glow">Experience</h2>
         <div className="space-y-6">
-          <Card className="bg-slate-800/50 border border-cyan-500/20 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all duration-200">
+          <Card className="futuristic-card">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
-                <Briefcase className="w-6 h-6 text-cyan-400 mt-1" />
+                <Briefcase className="w-6 h-6 text-primary mt-1 futuristic-glow" />
                 <div>
-                  <h3 className="text-xl font-bold text-cyan-300">Shopify Developer (Werkstudent)</h3>
-                  <p className="text-cyan-200/80">Harms Nutricare GmbH, Germany • 02/2024 – 08/2024</p>
-                  <ul className="list-disc ml-5 mt-2 text-cyan-100/70 text-sm">
-                    <li>Developed and deployed 5+ Shopify plugins using Liquid and JavaScript, increasing platform functionality and boosting user retention by 20%.</li>
-                    <li>Customized 10+ responsive e-commerce websites, integrating RESTful APIs and ensuring seamless UX/UI across mobile and desktop, improving page load speed by 15%.</li>
-                    <li>Optimized and debugged existing codebases, reducing error rates by 25% through regular updates and performance enhancements.</li>
-                  </ul>
+                  <h3 className="text-xl font-bold text-primary futuristic-glow">Shopify Developer (Werkstudent)</h3>
+                  <p className="text-foreground/80 futuristic-glow">Harms Nutricare GmbH, Germany • 02/2024 – 08/2024</p>
+                  {/* <ul className="list-disc ml-5 mt-2 text-foreground/70 text-sm">
+                    <li className="futuristic-glow">Developed and deployed 5+ Shopify plugins using Liquid and JavaScript, increasing platform functionality and boosting user retention by 20%.</li>
+                    <li className="futuristic-glow">Customized 10+ responsive e-commerce websites, integrating RESTful APIs and ensuring seamless UX/UI across mobile and desktop, improving page load speed by 15%.</li>
+                    <li className="futuristic-glow">Optimized and debugged existing codebases, reducing error rates by 25% through regular updates and performance enhancements.</li>
+                  </ul> */}
                 </div>
               </div>
             </CardContent>
           </Card>
-          <Card className="bg-slate-800/50 border border-cyan-500/20 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all duration-200">
+          <Card className="futuristic-card">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
-                <Briefcase className="w-6 h-6 text-cyan-400 mt-1" />
+                <Briefcase className="w-6 h-6 text-primary mt-1 futuristic-glow" />
                 <div>
-                  <h3 className="text-xl font-bold text-cyan-300">Web Developer for Machine Learning App</h3>
-                  <p className="text-cyan-200/80">Siemens AG, Germany • 02/2023 – 07/2023</p>
-                  <ul className="list-disc ml-5 mt-2 text-cyan-100/70 text-sm">
-                    <li>Built a proof-of-concept for workflow optimization using React, TypeScript, ChakraUI and Python, boosting process efficiency by 15% for internal R&D teams.</li>
-                    <li>Engineered user-friendly React and TypeScript interfaces incorporating ChakraUI components for a machine learning application, boosting user engagement by 40% through enhanced accessibility features and intuitive design.</li>
-                    <li>Integrated back-end functionalities with RESTful APIs, enabling smooth data flow and reducing latency by 25%.</li>
-                  </ul>
+                  <h3 className="text-xl font-bold text-primary futuristic-glow">Web Developer for Machine Learning App</h3>
+                  <p className="text-foreground/80 futuristic-glow">Siemens AG, Germany • 02/2023 – 07/2023</p>
+                  {/* <ul className="list-disc ml-5 mt-2 text-foreground/70 text-sm">
+                    <li className="futuristic-glow">Built a proof-of-concept for workflow optimization using React, TypeScript, ChakraUI and Python, boosting process efficiency by 15% for internal R&D teams.</li>
+                    <li className="futuristic-glow">Engineered user-friendly React and TypeScript interfaces incorporating ChakraUI components for a machine learning application, boosting user engagement by 40% through enhanced accessibility features and intuitive design.</li>
+                    <li className="futuristic-glow">Integrated back-end functionalities with RESTful APIs, enabling smooth data flow and reducing latency by 25%.</li>
+                  </ul> */}
                 </div>
               </div>
             </CardContent>
           </Card>
-          <Card className="bg-slate-800/50 border border-cyan-500/20 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all duration-200">
+          <Card className="futuristic-card">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
-                <Briefcase className="w-6 h-6 text-cyan-400 mt-1" />
+                <Briefcase className="w-6 h-6 text-primary mt-1 futuristic-glow" />
                 <div>
-                  <h3 className="text-xl font-bold text-cyan-300">Business Analyst</h3>
-                  <p className="text-cyan-200/80">Fragomen, Kochi, India • 03/2021 – 10/2021</p>
-                  <ul className="list-disc ml-5 mt-2 text-cyan-100/70 text-sm">
-                    <li>Led 4 cross-functional projects, implementing process improvements that reduced operational delays by 18%.</li>
-                    <li>Analyzed datasets to drive strategic decisions, cutting project costs by 12% through actionable insights.</li>
-                  </ul>
+                  <h3 className="text-xl font-bold text-primary futuristic-glow">Business Analyst</h3>
+                  <p className="text-foreground/80 futuristic-glow">Fragomen, Kochi, India • 03/2021 – 10/2021</p>
+                  {/* <ul className="list-disc ml-5 mt-2 text-foreground/70 text-sm">
+                    <li className="futuristic-glow">Led 4 cross-functional projects, implementing process improvements that reduced operational delays by 18%.</li>
+                    <li className="futuristic-glow">Analyzed datasets to drive strategic decisions, cutting project costs by 12% through actionable insights.</li>
+                  </ul> */}
                 </div>
               </div>
             </CardContent>
           </Card>
-          <Card className="bg-slate-800/50 border border-cyan-500/20 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all duration-200">
+          <Card className="futuristic-card">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
-                <Briefcase className="w-6 h-6 text-cyan-400 mt-1" />
+                <Briefcase className="w-6 h-6 text-primary mt-1 futuristic-glow" />
                 <div>
-                  <h3 className="text-xl font-bold text-cyan-300">Data Analyst</h3>
-                  <p className="text-cyan-200/80">Indus Towers Limited, Kochi, India • 02/2020 – 10/2021</p>
-                  <ul className="list-disc ml-5 mt-2 text-cyan-100/70 text-sm">
-                    <li>Streamlined data commissioning/decommissioning workflows, enhancing data integrity and slashing SBC by 35%.</li>
-                    <li>Designed and deployed Power BI and Tableau dashboards, delivering energy usage insights that saved 10% operational costs.</li>
-                    <li>Built and maintained secure data pipelines using MongoDB and Python, ensuring 100% compliance with governance standards.</li>
-                  </ul>
+                  <h3 className="text-xl font-bold text-primary futuristic-glow">Data Analyst</h3>
+                  <p className="text-foreground/80 futuristic-glow">Indus Towers Limited, Kochi, India • 02/2020 – 10/2021</p>
+                  {/* <ul className="list-disc ml-5 mt-2 text-foreground/70 text-sm">
+                    <li className="futuristic-glow">Streamlined data commissioning/decommissioning workflows, enhancing data integrity and slashing SBC by 35%.</li>
+                    <li className="futuristic-glow">Designed and deployed Power BI and Tableau dashboards, delivering energy usage insights that saved 10% operational costs.</li>
+                    <li className="futuristic-glow">Built and maintained secure data pipelines using MongoDB and Python, ensuring 100% compliance with governance standards.</li>
+                  </ul> */}
                 </div>
               </div>
             </CardContent>
           </Card>
-          <Card className="bg-slate-800/50 border border-cyan-500/20 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all duration-200">
+          <Card className="futuristic-card">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
-                <Briefcase className="w-6 h-6 text-cyan-400 mt-1" />
+                <Briefcase className="w-6 h-6 text-primary mt-1 futuristic-glow" />
                 <div>
-                  <h3 className="text-xl font-bold text-cyan-300">Software Engineer</h3>
-                  <p className="text-cyan-200/80">Fourth Ambit Technologies, Kochi, India • 08/2018 – 02/2020</p>
-                  <ul className="list-disc ml-5 mt-2 text-cyan-100/70 text-sm">
-                    <li>Delivered and rigorously tested 8+ interactive web applications using HTML, JavaScript, CSS, and PHP, resulting in a stellar 98% client satisfaction rate across all project deliverables.</li>
-                    <li>Implemented scalable code solutions, cutting deployment time by 20% through structured development practices.</li>
-                    <li>Collaborated with cross-functional teams to align technical deliverables with business objectives, supporting 3 major product launches.</li>
-                  </ul>
+                  <h3 className="text-xl font-bold text-primary futuristic-glow">Software Engineer</h3>
+                  <p className="text-foreground/80 futuristic-glow">Fourth Ambit Technologies, Kochi, India • 08/2018 – 02/2020</p>
+                  {/* <ul className="list-disc ml-5 mt-2 text-foreground/70 text-sm">
+                    <li className="futuristic-glow">Delivered and rigorously tested 8+ interactive web applications using HTML, JavaScript, CSS, and PHP, resulting in a stellar 98% client satisfaction rate across all project deliverables.</li>
+                    <li className="futuristic-glow">Implemented scalable code solutions, cutting deployment time by 20% through structured development practices.</li>
+                    <li className="futuristic-glow">Collaborated with cross-functional teams to align technical deliverables with business objectives, supporting 3 major product launches.</li>
+                  </ul> */}
                 </div>
               </div>
             </CardContent>
@@ -178,35 +189,35 @@ const Portfolio: React.FC = () => {
 
       {/* Education Section */}
       <section className="mb-16 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-semibold mb-6 text-center bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300 text-transparent bg-clip-text drop-shadow-[0_0_8px_rgba(34,211,238,0.3)]">Education</h2>
+        <h2 className="text-3xl font-semibold mb-6 text-center bg-gradient-to-r from-primary via-primary to-primary text-transparent bg-clip-text futuristic-glow">Education</h2>
         <div className="space-y-6">
-          <Card className="bg-slate-800/50 border border-cyan-500/20 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all duration-200">
+          <Card className="futuristic-card">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
-                <GraduationCap className="w-6 h-6 text-cyan-400 mt-1" />
+                <GraduationCap className="w-6 h-6 text-primary mt-1 futuristic-glow" />
                 <div>
-                  <h3 className="text-xl font-bold text-cyan-300">Master of Engineering, Hochschule Hof</h3>
-                  <p className="text-cyan-200/80">Hof, Germany • 2021 – 2025</p>
-                  <ul className="list-disc ml-5 mt-2 text-cyan-100/70 text-sm">
-                    <li>Field of study: Software Engineering for Industrial Applications</li>
-                    <li>Final grade: 1.9</li>
-                    <li>Thesis: Feedback Pulse - A cloud-native sentiment and emotion detection platform to analyze product reviews in real time (LLM, Python, React, Typescript, Firebase, Pandas, Numpy, Torch, Transformers, beautifulsoup4, NLP, Docker)</li>
+                  <h3 className="text-xl font-bold text-primary futuristic-glow">Master of Engineering, Hochschule Hof</h3>
+                  <p className="text-foreground/80 futuristic-glow">Hof, Germany • 2021 – 2025</p>
+                  <ul className="list-disc ml-5 mt-2 text-foreground/70 text-sm">
+                    <li className="futuristic-glow">Field of study: Software Engineering for Industrial Applications</li>
+                    <li className="futuristic-glow">Final grade: 1.9</li>
+                    <li className="futuristic-glow">Thesis: Feedback Pulse - A cloud-native sentiment and emotion detection platform to analyze product reviews in real time (LLM, Python, React, Typescript, Firebase, Pandas, Numpy, Torch, Transformers, beautifulsoup4, NLP, Docker)</li>
                   </ul>
                 </div>
               </div>
             </CardContent>
           </Card>
-          <Card className="bg-slate-800/50 border border-cyan-500/20 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all duration-200">
+          <Card className="futuristic-card">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
-                <GraduationCap className="w-6 h-6 text-cyan-400 mt-1" />
+                <GraduationCap className="w-6 h-6 text-primary mt-1 futuristic-glow" />
                 <div>
-                  <h3 className="text-xl font-bold text-cyan-300">Bachelor of Technology, MG University</h3>
-                  <p className="text-cyan-200/80">Kottayam, India • 2014 – 2018</p>
-                  <ul className="list-disc ml-5 mt-2 text-cyan-100/70 text-sm">
-                    <li>Field of study: Computer Science and Engineering</li>
-                    <li>Final grade: 2.7</li>
-                    <li>Thesis: PDF Converter with OCR algorithm (Android app to convert scanned images of text or handwritten notes into editable PDF formats)</li>
+                  <h3 className="text-xl font-bold text-primary futuristic-glow">Bachelor of Technology, MG University</h3>
+                  <p className="text-foreground/80 futuristic-glow">Kottayam, India • 2014 – 2018</p>
+                  <ul className="list-disc ml-5 mt-2 text-foreground/70 text-sm">
+                    <li className="futuristic-glow">Field of study: Computer Science and Engineering</li>
+                    <li className="futuristic-glow">Final grade: 2.7</li>
+                    <li className="futuristic-glow">Thesis: PDF Converter with OCR algorithm (Android app to convert scanned images of text or handwritten notes into editable PDF formats)</li>
                   </ul>
                 </div>
               </div>
@@ -217,18 +228,18 @@ const Portfolio: React.FC = () => {
 
       {/* Languages Section */}
       <section className="mb-16 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-semibold mb-6 text-center bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300 text-transparent bg-clip-text drop-shadow-[0_0_8px_rgba(34,211,238,0.3)]">Languages</h2>
+        <h2 className="text-3xl font-semibold mb-6 text-center bg-gradient-to-r from-primary via-primary to-primary text-transparent bg-clip-text futuristic-glow">Languages</h2>
         <div className="flex flex-wrap justify-center gap-6">
-          <Card className="bg-slate-800/50 border border-cyan-500/20 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all duration-200">
+          <Card className="futuristic-card">
             <CardContent className="p-4 flex flex-col items-center">
-              <span className="text-lg font-bold text-cyan-300">English</span>
-              <span className="text-cyan-200/80">Fluent</span>
+              <span className="text-lg font-bold text-primary futuristic-glow">English</span>
+              <span className="text-foreground/80 futuristic-glow">Fluent</span>
             </CardContent>
           </Card>
-          <Card className="bg-slate-800/50 border border-cyan-500/20 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all duration-200">
+          <Card className="futuristic-card">
             <CardContent className="p-4 flex flex-col items-center">
-              <span className="text-lg font-bold text-cyan-300">German</span>
-              <span className="text-cyan-200/80">B1 (Independent User)</span>
+              <span className="text-lg font-bold text-primary futuristic-glow">German</span>
+              <span className="text-foreground/80 futuristic-glow">B1 (Independent User)</span>
             </CardContent>
           </Card>
         </div>
@@ -236,20 +247,20 @@ const Portfolio: React.FC = () => {
 
       {/* Recommendations Section */}
       <section className="mb-16 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-semibold mb-6 text-center bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300 text-transparent bg-clip-text drop-shadow-[0_0_8px_rgba(34,211,238,0.3)]">Recommendations</h2>
+        <h2 className="text-3xl font-semibold mb-6 text-center bg-gradient-to-r from-primary via-primary to-primary text-transparent bg-clip-text futuristic-glow">Recommendations</h2>
         <div className="flex flex-wrap justify-center gap-6">
-          <Card className="bg-slate-800/50 border border-cyan-500/20 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all duration-200">
+          <Card className="futuristic-card">
             <CardContent className="p-4 flex flex-col items-center">
-              <span className="text-lg font-bold text-cyan-300">Jürgen Heym</span>
-              <span className="text-cyan-200/80">Fakultät Informatik (INF), Hochschule Hof</span>
-              <a href="mailto:juergen.heym@hof-university.de" className="text-cyan-400 hover:text-cyan-300 hover:underline mt-1">juergen.heym@hof-university.de</a>
+              <span className="text-lg font-bold text-primary futuristic-glow">Jürgen Heym</span>
+              <span className="text-foreground/80 futuristic-glow">Fakultät Informatik (INF), Hochschule Hof</span>
+              <a href="mailto:juergen.heym@hof-university.de" className="text-primary hover:text-primary/80 hover:underline mt-1 futuristic-glow">juergen.heym@hof-university.de</a>
             </CardContent>
           </Card>
-          <Card className="bg-slate-800/50 border border-cyan-500/20 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all duration-200">
+          <Card className="futuristic-card">
             <CardContent className="p-4 flex flex-col items-center">
-              <span className="text-lg font-bold text-cyan-300">Harald Held</span>
-              <span className="text-cyan-200/80">Senior Research Scientist, Siemens AG</span>
-              <a href="mailto:harald.held@siemens.com" className="text-cyan-400 hover:text-cyan-300 hover:underline mt-1">harald.held@siemens.com</a>
+              <span className="text-lg font-bold text-primary futuristic-glow">Harald Held</span>
+              <span className="text-foreground/80 futuristic-glow">Senior Research Scientist, Siemens AG</span>
+              <a href="mailto:harald.held@siemens.com" className="text-primary hover:text-primary/80 hover:underline mt-1 futuristic-glow">harald.held@siemens.com</a>
             </CardContent>
           </Card>
         </div>
@@ -257,30 +268,30 @@ const Portfolio: React.FC = () => {
 
       {/* Projects Section */}
       <section className="mb-16 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-semibold mb-6 text-center bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300 text-transparent bg-clip-text drop-shadow-[0_0_8px_rgba(34,211,238,0.3)]">Projects</h2>
+        <h2 className="text-3xl font-semibold mb-6 text-center bg-gradient-to-r from-primary via-primary to-primary text-transparent bg-clip-text futuristic-glow">Projects</h2>
         <div className="space-y-6">
-          <Card className="bg-slate-800/50 border border-cyan-500/20 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all duration-200">
+          <Card className="futuristic-card">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
-                <Code className="w-6 h-6 text-cyan-400 mt-1" />
+                <Code className="w-6 h-6 text-primary mt-1 futuristic-glow" />
                 <div>
-                  <h3 className="text-xl font-bold text-cyan-300">Feedback Pulse - Sentiment & Emotion Analysis Platform</h3>
-                  <ul className="list-disc ml-5 mt-2 text-cyan-100/70 text-sm">
-                    <li>Cloud-native platform to analyze product/service reviews in real time.</li>
-                    <li>Technologies: LLM, Python, React, Typescript, Firebase, Pandas, Numpy, Torch, Transformers, beautifulsoup4, NLP, Docker.</li>
+                  <h3 className="text-xl font-bold text-primary futuristic-glow">Feedback Pulse - Sentiment & Emotion Analysis Platform</h3>
+                  <ul className="list-disc ml-5 mt-2 text-foreground/70 text-sm">
+                    <li className="futuristic-glow">Cloud-native platform to analyze product/service reviews in real time.</li>
+                    <li className="futuristic-glow">Technologies: LLM, Python, React, Typescript, Firebase, Pandas, Numpy, Torch, Transformers, beautifulsoup4, NLP, Docker.</li>
                   </ul>
                 </div>
               </div>
             </CardContent>
           </Card>
-          <Card className="bg-slate-800/50 border border-cyan-500/20 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all duration-200">
+          <Card className="futuristic-card">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
-                <Code className="w-6 h-6 text-cyan-400 mt-1" />
+                <Code className="w-6 h-6 text-primary mt-1 futuristic-glow" />
                 <div>
-                  <h3 className="text-xl font-bold text-cyan-300">PDF Converter with OCR Algorithm</h3>
-                  <ul className="list-disc ml-5 mt-2 text-cyan-100/70 text-sm">
-                    <li>Android app to convert scanned images of text or handwritten notes into editable PDF formats.</li>
+                  <h3 className="text-xl font-bold text-primary futuristic-glow">PDF Converter with OCR Algorithm</h3>
+                  <ul className="list-disc ml-5 mt-2 text-foreground/70 text-sm">
+                    <li className="futuristic-glow">Android app to convert scanned images of text or handwritten notes into editable PDF formats.</li>
                   </ul>
                 </div>
               </div>
@@ -290,11 +301,11 @@ const Portfolio: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <footer className={`text-center text-sm border-t border-cyan-500/20 pt-6`}>
-        <p className="text-cyan-200/60">
+      <footer className={`text-center text-sm border-t border-primary/20 pt-6`}>
+        <p className="text-foreground/60 futuristic-glow">
           © {new Date().getFullYear()} Krishnendu Saji. All rights reserved.
         </p>
-        <p className="mt-2 text-cyan-400">
+        <p className="mt-2 text-primary futuristic-glow">
           Built with React and Tailwind CSS
         </p>
       </footer>
